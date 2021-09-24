@@ -9,7 +9,7 @@ def cabecera():
              `/:-:++oooo+:               ------------------- 
             `/++++/+++++++:              Lecture Script powered by python 3
            `/++++++++++++++:             API powered by Java Spring
-          `/+++ooooooooooooo/`           Front end powered by 
+          `/+++ooooooooooooo/`           Front-end powered by Vue
          ./ooosssso++osssssso+`           
         .oossssso-````/ossssss+`          
        -osssssso.      :ssssssso.         
