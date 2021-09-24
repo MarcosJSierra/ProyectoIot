@@ -1,0 +1,12 @@
+{
+    "sensor_info":{
+        "id": 1
+    },
+    "events":{
+        "full": 1,
+        "75_percent": 2,
+        "50_percent": 3,
+        "25_percent": 4,
+        "empty": 5
+    }
+}
