@@ -13,6 +13,7 @@ import java.util.ArrayList;
  *
  * @author marcos
  */
+@Service
 public interface EventService {
       
     public Event getEventByID(Integer eventId);

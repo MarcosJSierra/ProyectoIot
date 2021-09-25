@@ -7,11 +7,13 @@ package gt.com.iot.service;
 
 import gt.com.iot.model.Tank;
 import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author marcos
  */
+@Service
 public interface TankService {
     
     public Tank getTankByID(Integer tankId);
