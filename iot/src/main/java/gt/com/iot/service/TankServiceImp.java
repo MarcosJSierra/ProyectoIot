@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gt.com.iot.dao.service;
+package gt.com.iot.service;
 
 import gt.com.iot.dao.TankDao;
 import gt.com.iot.model.Tank;
