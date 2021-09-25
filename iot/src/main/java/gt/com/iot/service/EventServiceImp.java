@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author marcos
  */
-public class EventsServiceImp implements EventsService{
+public class EventServiceImp implements EventService{
     
     @Autowired
     public EventsRepository eventsRepo;

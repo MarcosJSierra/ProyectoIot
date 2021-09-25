@@ -15,7 +15,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name="SensorLectures")
+@Table(name="SensorLecture")
 public class SensorLecture implements Serializable{
     
     private static final long serialVersionUID = 1L;
@@ -23,9 +23,9 @@ public class SensorLecture implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idDatosSensor")
-    private Integer idSensorsLectures;
+    private Integer idDatosSensor;
     
-    @Column(name="timestampLecture")
+    @Column(name="timeLecture")
     private Long timeLecture;
     
     @Column(name="lecture")

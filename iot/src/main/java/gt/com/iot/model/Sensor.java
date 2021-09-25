@@ -44,8 +44,8 @@ public class Sensor implements Serializable{
     @Column(name="state")
     private Boolean state;
     
-    @Column(name="tipo")
-    private String tipo;
+    @Column(name="type")
+    private String type;
     
     @ManyToOne
     @JoinColumn(name="idTank", referencedColumnName="idTank")
