@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,32 +23,33 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@RequestMapping(value = "api/sensor")
 public class SensorController {
 
     @Autowired
     private SensorService sensorService;
 
-    @GetMapping("/sensor")
+    @GetMapping("")
     List<Sensor> getSensorList() {
         return sensorService.getAll();
     }
 
-    @GetMapping("/sensor/tank/{id}")
+    @GetMapping("/tank/{id}")
     List<Sensor> getSensorListByTank(@PathVariable Integer tankId) {
         return sensorService.getSensorByTank(tankId);
     }
 
-    @GetMapping("/sensor/{id}")
+    @GetMapping("/{id}")
     Sensor getSensor(@PathVariable Integer id) {
         return sensorService.getSensorByID(id);
     }
 
-    @PostMapping("/sensor")
+    @PostMapping("")
     Sensor createSensor(@RequestBody Sensor sensor) {
         return sensorService.createSensor(sensor);
     }
 
-    @PutMapping("/sensor/{id}")
+    @PutMapping("/{id}")
     Sensor updateSensor(@RequestBody Sensor sensor, @PathVariable Integer id) {
         Sensor oldSensor = sensorService.getSensorByID(id);
         oldSensor.setName(sensor.getName());
@@ -58,7 +60,7 @@ public class SensorController {
         return sensorService.updateSensor(oldSensor);
     }
 
-    @DeleteMapping("/sensor/{id}")
+    @DeleteMapping("/{id}")
     void deleteSensor(@PathVariable Sensor sensor) {
         sensorService.deleteSensor(sensor);
     }

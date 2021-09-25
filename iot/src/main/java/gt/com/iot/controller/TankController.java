@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,27 +23,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@RequestMapping(value = "api/tank")
 public class TankController {
 
     @Autowired
     private TankService tankService;
 
-    @GetMapping("/tank")
+    @GetMapping("")
     List<Tank> getSensorList() {
         return tankService.getAll();
     }
 
-    @GetMapping("/tank/{id}")
+    @GetMapping("/{id}")
     Tank getTank(@PathVariable Integer id) {
         return tankService.getTankByID(id);
     }
 
-    @PostMapping("/tank")
+    @PostMapping("")
     Tank createTank(@RequestBody Tank tank) {
         return tankService.createTank(tank);
     }
 
-    @PutMapping("/tank/{id}")
+    @PutMapping("/{id}")
     Tank updateTank(@RequestBody Tank tank, @PathVariable Integer id) {
         Tank olTank = tankService.getTankByID(id);
         olTank.setName(tank.getName());
@@ -55,7 +57,7 @@ public class TankController {
         return tankService.updateTank(olTank);
     }
 
-    @DeleteMapping("/tank/{id}")
+    @DeleteMapping("/{id}")
     void deleteTank(@PathVariable Tank tank) {
         tankService.deleteTank(tank);
     }
