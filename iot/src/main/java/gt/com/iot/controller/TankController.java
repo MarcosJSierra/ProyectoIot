@@ -9,6 +9,7 @@ import gt.com.iot.model.Tank;
 import gt.com.iot.service.TankService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,8 +40,8 @@ public class TankController {
         return tankService.getTankByID(id);
     }
 
-    @PostMapping("")
-    Tank createTank(@RequestBody Tank tank) {
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    Tank createTank(Tank tank) {
         return tankService.createTank(tank);
     }
 
