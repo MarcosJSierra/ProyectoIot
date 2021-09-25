@@ -27,7 +27,7 @@ public class Events implements Serializable{
     
     private Integer eventCode;
     
-    private Integer timeEvent;
+    private Long timeEvent;
     
     @ManyToOne
     @JoinColumn(name = "idSensor")

@@ -26,7 +26,7 @@ public class SensorLectures implements Serializable{
     private Integer idSensorsLectures;
     
     @Column(name="timestampLecture")
-    private Integer timeLecture;
+    private Long timeLecture;
     
     @Column(name="lecture")
     private Long lecture;
