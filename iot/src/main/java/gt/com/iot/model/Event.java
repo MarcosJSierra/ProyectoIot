@@ -16,14 +16,14 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="Events")
-public class Events implements Serializable{
+public class Event implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idEventos")
-    private Integer idEventos;
+    @Column(name="idEvento")
+    private Integer idEvento;
     
     private Integer eventCode;
     

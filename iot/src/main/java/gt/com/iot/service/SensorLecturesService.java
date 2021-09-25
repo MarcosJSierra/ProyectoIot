@@ -6,7 +6,7 @@
 package gt.com.iot.service;
 
 import gt.com.iot.model.Sensor;
-import gt.com.iot.model.SensorLectures;
+import gt.com.iot.model.SensorLecture;
 import java.util.ArrayList;
 
 /**
@@ -15,15 +15,15 @@ import java.util.ArrayList;
  */
 public interface SensorLecturesService {
       
-    public SensorLectures getSensorLectureByID(Integer lectureId);
+    public SensorLecture getSensorLectureByID(Integer lectureId);
     
-    public ArrayList<SensorLectures> getSensorLectureBySensor(Integer sensorId);
+    public ArrayList<SensorLecture> getSensorLectureBySensor(Integer sensorId);
     
-    public void createSensorLectures(SensorLectures newLecture);
+    public void createSensorLectures(SensorLecture newLecture);
     
-    public void updateSensorLectures(SensorLectures lecture);
+    public void updateSensorLectures(SensorLecture lecture);
     
-    public void deleteSensorLectures(SensorLectures lecture);
+    public void deleteSensorLectures(SensorLecture lecture);
     
-    public ArrayList<SensorLectures> getAll();
+    public ArrayList<SensorLecture> getAll();
 }

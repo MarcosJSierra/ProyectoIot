@@ -5,7 +5,7 @@
  */
 package gt.com.iot.service;
 
-import gt.com.iot.model.Events;
+import gt.com.iot.model.Event;
 import gt.com.iot.model.Sensor;
 import java.util.ArrayList;
 
@@ -15,16 +15,16 @@ import java.util.ArrayList;
  */
 public interface EventsService {
       
-    public Events getEventByID(Integer eventId);
+    public Event getEventByID(Integer eventId);
     
-    public ArrayList<Events> getEventsBySensor(Integer sensorId);
+    public ArrayList<Event> getEventsBySensor(Integer sensorId);
     
-    public void createEvent(Events newEvents);
+    public void createEvent(Event newEvents);
     
-    public void updateEvent(Events tank);
+    public void updateEvent(Event tank);
     
-    public void deleteEvent(Events tank);
+    public void deleteEvent(Event tank);
     
-    public ArrayList<Events> getAll();
+    public ArrayList<Event> getAll();
     
 }

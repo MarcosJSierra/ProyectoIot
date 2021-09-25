@@ -6,7 +6,7 @@
 package gt.com.iot.service;
 
 import gt.com.iot.model.Sensor;
-import gt.com.iot.model.SensorLectures;
+import gt.com.iot.model.SensorLecture;
 import gt.com.iot.repository.SensorLecturesRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,38 +23,38 @@ public class SensorLecturesServiceImp implements SensorLecturesService{
     
     @Override
     @Transactional(readOnly = true)
-    public SensorLectures getSensorLectureByID(Integer lectureId) {
+    public SensorLecture getSensorLectureByID(Integer lectureId) {
         return sensorLecRepo.getById(lectureId);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<SensorLectures> getSensorLectureBySensor(Integer sensorId) {
+    public ArrayList<SensorLecture> getSensorLectureBySensor(Integer sensorId) {
         return sensorLecRepo.queryBySensorId(sensorId);
     }
 
     @Override
     @Transactional
-    public void createSensorLectures(SensorLectures newLecture) {
+    public void createSensorLectures(SensorLecture newLecture) {
         sensorLecRepo.save(newLecture);
     }
     
     @Override
     @Transactional
-    public void updateSensorLectures(SensorLectures lecture) {
+    public void updateSensorLectures(SensorLecture lecture) {
         sensorLecRepo.save(lecture);
     }
     
     @Override
     @Transactional
-    public void deleteSensorLectures(SensorLectures lecture) {
+    public void deleteSensorLectures(SensorLecture lecture) {
         sensorLecRepo.delete(lecture);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<SensorLectures> getAll() {
-        return (ArrayList<SensorLectures>) sensorLecRepo.findAll();
+    public ArrayList<SensorLecture> getAll() {
+        return (ArrayList<SensorLecture>) sensorLecRepo.findAll();
     }
     
 }

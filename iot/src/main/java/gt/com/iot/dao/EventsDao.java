@@ -5,7 +5,7 @@
  */
 package gt.com.iot.dao;
 
-import gt.com.iot.model.Events;
+import gt.com.iot.model.Event;
 import org.springframework.data.repository.CrudRepository;
 
 
@@ -14,6 +14,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author marcos
  */
-public interface EventsDao extends CrudRepository<Events, Integer>{
+public interface EventsDao extends CrudRepository<Event, Integer>{
     
 }

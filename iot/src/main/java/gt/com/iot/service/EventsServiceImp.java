@@ -5,7 +5,7 @@
  */
 package gt.com.iot.service;
 
-import gt.com.iot.model.Events;
+import gt.com.iot.model.Event;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.repository.EventsRepository;
 import java.util.ArrayList;
@@ -23,38 +23,38 @@ public class EventsServiceImp implements EventsService{
     
     @Override
     @Transactional(readOnly = true)
-    public Events getEventByID(Integer eventId) {
+    public Event getEventByID(Integer eventId) {
         return eventsRepo.getById(eventId);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Events> getEventsBySensor(Integer sensorId) {
+    public ArrayList<Event> getEventsBySensor(Integer sensorId) {
         return eventsRepo.queryBySensorId(sensorId);
     }
 
     @Override
     @Transactional
-    public void createEvent(Events newEvents) {
+    public void createEvent(Event newEvents) {
         eventsRepo.save(newEvents);
     }
 
     @Override
     @Transactional
-    public void updateEvent(Events event) {
+    public void updateEvent(Event event) {
         eventsRepo.save(event);
     }
 
     @Override
     @Transactional
-    public void deleteEvent(Events event) {
+    public void deleteEvent(Event event) {
         eventsRepo.delete(event);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Events> getAll() {
-        return (ArrayList<Events>) eventsRepo.findAll();
+    public ArrayList<Event> getAll() {
+        return (ArrayList<Event>) eventsRepo.findAll();
     }
     
     

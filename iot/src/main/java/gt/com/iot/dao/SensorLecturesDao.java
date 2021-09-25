@@ -5,7 +5,7 @@
  */
 package gt.com.iot.dao;
 
-import gt.com.iot.model.SensorLectures;
+import gt.com.iot.model.SensorLecture;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
@@ -13,6 +13,6 @@ import org.springframework.data.repository.CrudRepository;
  *
  * @author marcos
  */
-public interface SensorLecturesDao extends JpaRepository<SensorLectures, Integer>{
+public interface SensorLecturesDao extends JpaRepository<SensorLecture, Integer>{
     
 }

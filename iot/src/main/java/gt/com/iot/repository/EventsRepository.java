@@ -5,8 +5,8 @@
  */
 package gt.com.iot.repository;
 
-import gt.com.iot.model.Events;
-import gt.com.iot.model.SensorLectures;
+import gt.com.iot.model.Event;
+import gt.com.iot.model.SensorLecture;
 import java.util.ArrayList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -16,8 +16,8 @@ import org.springframework.data.repository.query.Param;
  *
  * @author marcos
  */
-public interface EventsRepository extends JpaRepository<Events, Integer>{
+public interface EventsRepository extends JpaRepository<Event, Integer>{
 
     @Query (value = "SELECT * FROM Events WHERE Events.idSensor = :idSensor", nativeQuery = true)
-    ArrayList<Events> queryBySensorId(@Param("idSensor") Integer idSensor);
+    ArrayList<Event> queryBySensorId(@Param("idSensor") Integer idSensor);
 }

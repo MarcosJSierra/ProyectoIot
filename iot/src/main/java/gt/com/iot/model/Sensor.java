@@ -52,9 +52,9 @@ public class Sensor implements Serializable{
     private Tank tank;
     
     @OneToMany(mappedBy = "sensor")
-    private List<SensorLectures> sensorLectures;
+    private List<SensorLecture> sensorLectures;
     
     @OneToMany(mappedBy = "sensor")
-    private List<Events> events;
+    private List<Event> events;
     
 }

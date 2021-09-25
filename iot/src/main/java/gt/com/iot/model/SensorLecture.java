@@ -16,7 +16,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name="SensorLectures")
-public class SensorLectures implements Serializable{
+public class SensorLecture implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
