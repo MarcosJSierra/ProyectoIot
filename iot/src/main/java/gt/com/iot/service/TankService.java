@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
  *
  * @author marcos
  */
-@Service
 public interface TankService {
     
     public Tank getTankByID(Integer tankId);

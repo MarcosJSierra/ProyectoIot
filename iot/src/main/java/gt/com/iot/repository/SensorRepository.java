@@ -10,11 +10,13 @@ import java.util.ArrayList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author marcos
  */
+@Repository
 public interface SensorRepository extends JpaRepository<Sensor, Integer>{
     @Query (value = "SELECT * FROM Sensor WHERE Sensor.idTank = :idTank", nativeQuery = true)
     ArrayList<Sensor> queryByTankId(@Param("idTank") Integer idTank);
