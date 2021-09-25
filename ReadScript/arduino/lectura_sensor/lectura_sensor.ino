@@ -21,5 +21,5 @@ void loop() {
   d = t/59;   //Distancia en centimetros
 
   Serial.println(d);
-  delay(1000); // pausa en ms
+  delay(60000); // pausa en ms actualmente un minuto
 }
