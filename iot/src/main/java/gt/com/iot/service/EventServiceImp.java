@@ -10,12 +10,14 @@ import gt.com.iot.model.Sensor;
 import gt.com.iot.repository.EventsRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author marcos
  */
+@Service
 public class EventServiceImp implements EventService{
     
     @Autowired

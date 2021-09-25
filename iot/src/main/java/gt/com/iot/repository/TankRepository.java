@@ -7,11 +7,13 @@ package gt.com.iot.repository;
 
 import gt.com.iot.model.Tank;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author marcos
  */
+@Repository
 public interface TankRepository extends JpaRepository<Tank, Integer>{
     
 }

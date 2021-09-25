@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
  *
  * @author marcos
  */
-@Service
 public interface SensorService {
      
     public Sensor getSensorByID(Integer sensorId);

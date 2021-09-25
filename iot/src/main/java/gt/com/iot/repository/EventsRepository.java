@@ -11,11 +11,13 @@ import java.util.ArrayList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author marcos
  */
+@Repository
 public interface EventsRepository extends JpaRepository<Event, Integer>{
 
     @Query (value = "SELECT * FROM Events WHERE Events.idSensor = :idSensor", nativeQuery = true)

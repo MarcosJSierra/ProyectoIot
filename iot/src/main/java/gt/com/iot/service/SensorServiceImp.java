@@ -10,12 +10,15 @@ import gt.com.iot.model.Tank;
 import gt.com.iot.repository.SensorRepository;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author marcos
  */
+
+@Service
 public class SensorServiceImp implements SensorService{
 
     @Autowired
