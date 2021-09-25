@@ -9,6 +9,7 @@ import gt.com.iot.model.SensorLecture;
 import gt.com.iot.service.SensorLectureService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,8 +45,8 @@ public class SensorLectureController {
         return lectureService.getSensorLectureByID(id);
     }
 
-    @PostMapping("")
-    SensorLecture createSensorLecture(@RequestBody SensorLecture sensorLecture) {
+    @PostMapping(value = "", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    SensorLecture createSensorLecture(SensorLecture sensorLecture) {
         return lectureService.createSensorLecture(sensorLecture);
     }
 
