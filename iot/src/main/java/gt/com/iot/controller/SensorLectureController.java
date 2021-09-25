@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,32 +23,33 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@RequestMapping(value = "api/sensorlecture")
 public class SensorLectureController {
 
     @Autowired
     private SensorLectureService lectureService;
 
-    @GetMapping("/sensorlecture")
+    @GetMapping("")
     List<SensorLecture> getSensorList() {
         return lectureService.getAll();
     }
 
-    @GetMapping("/sensorlecture/sensor/{id}")
+    @GetMapping("/sensor/{id}")
     List<SensorLecture> getSensorLectureListBySensor(@PathVariable Integer sensorId) {
         return lectureService.getSensorLectureBySensor(sensorId);
     }
 
-    @GetMapping("/sensorlecture/{id}")
+    @GetMapping("/{id}")
     SensorLecture getSensorLecture(@PathVariable Integer id) {
         return lectureService.getSensorLectureByID(id);
     }
 
-    @PostMapping("/sensorlecture")
+    @PostMapping("")
     SensorLecture createSensorLecture(@RequestBody SensorLecture sensorLecture) {
         return lectureService.createSensorLecture(sensorLecture);
     }
 
-    @PutMapping("/sensorlecture/{id}")
+    @PutMapping("/{id}")
     SensorLecture updateSensorLecture(@RequestBody SensorLecture sensorLecture, @PathVariable Integer id) {
         SensorLecture oldSensorLecture = lectureService.getSensorLectureByID(id);
         oldSensorLecture.setTimeLecture(sensorLecture.getTimeLecture());
@@ -56,7 +58,7 @@ public class SensorLectureController {
         return lectureService.updateSensorLecture(oldSensorLecture);
     }
 
-    @DeleteMapping("/sensorlecture/{id}")
+    @DeleteMapping("/{id}")
     void deleteSensorLecture(@PathVariable SensorLecture sensorLecture) {
         lectureService.deleteSensorLecture(sensorLecture);
     }

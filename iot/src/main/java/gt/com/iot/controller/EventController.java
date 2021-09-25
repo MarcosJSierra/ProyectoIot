@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -22,32 +23,33 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@RequestMapping(value = "api/event")
 public class EventController {
 
     @Autowired
     private EventService eventService;
 
-    @GetMapping("/event")
+    @GetMapping("")
     List<Event> getEventList() {
         return eventService.getAll();
     }
 
-    @GetMapping("/event/sensor/{id}")
+    @GetMapping("/sensor/{id}")
     List<Event> getEventListBySensor(@PathVariable Integer sensorId) {
         return eventService.getEventsBySensor(sensorId);
     }
 
-    @GetMapping("/event/{id}")
+    @GetMapping("/{id}")
     Event getEvent(@PathVariable Integer id) {
         return eventService.getEventByID(id);
     }
 
-    @PostMapping("/event")
+    @PostMapping("")
     Event createEvent(@RequestBody Event event) {
         return eventService.createEvent(event);
     }
 
-    @PutMapping("/event/{id}")
+    @PutMapping("/{id}")
     Event updateEvent(@RequestBody Event event, @PathVariable Integer id) {
         Event oldEvent = eventService.getEventByID(id);
         oldEvent.setEventCode(event.getEventCode());
@@ -56,7 +58,7 @@ public class EventController {
         return eventService.updateEvent(oldEvent);
     }
 
-    @DeleteMapping("/event/{id}")
+    @DeleteMapping("/{id}")
     void deleteEvent(@PathVariable Event event) {
         eventService.deleteEvent(event);
     }
