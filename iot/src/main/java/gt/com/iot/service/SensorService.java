@@ -17,11 +17,11 @@ public interface SensorService {
      
     public Sensor getSensorByID(Integer sensorId);
     
-    public ArrayList<Sensor> getSensorByTank(Tank tank);
+    public ArrayList<Sensor> getSensorByTank(Integer tankId);
     
-    public void createSensor(Sensor newSensor);
+    public Sensor createSensor(Sensor newSensor);
     
-    public void updateSensor(Sensor sensor);
+    public Sensor updateSensor(Sensor sensor);
     
     public void deleteSensor(Sensor sensor);
     

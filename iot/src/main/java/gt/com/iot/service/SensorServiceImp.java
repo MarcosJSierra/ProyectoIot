@@ -29,20 +29,22 @@ public class SensorServiceImp implements SensorService{
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Sensor> getSensorByTank(Tank tank) {
-        return sensorRepo.queryByTankId(tank.getIdTank());
+    public ArrayList<Sensor> getSensorByTank(Integer tankId) {
+        return sensorRepo.queryByTankId(tankId);
     }
 
     @Override
     @Transactional
-    public void createSensor(Sensor newSensor) {
-        sensorRepo.save(newSensor);
+    public Sensor createSensor(Sensor newSensor) {
+        Sensor sensor = sensorRepo.save(newSensor);
+        return sensor;
     }
 
     @Override
     @Transactional
-    public void updateSensor(Sensor sensor) {
-        sensorRepo.save(sensor);
+    public Sensor updateSensor(Sensor sensor) {
+        Sensor newSensor = sensorRepo.save(sensor);
+        return newSensor;
     }
 
     @Override

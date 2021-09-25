@@ -16,9 +16,9 @@ public interface TankService {
     
     public Tank getTankByID(Integer tankId);
     
-    public void createTank(Tank newTank);
+    public Tank createTank(Tank newTank);
     
-    public void updateTank(Tank tank);
+    public Tank updateTank(Tank tank);
     
     public void deleteTank(Tank tank);
     

@@ -5,7 +5,6 @@
  */
 package gt.com.iot.service;
 
-import gt.com.iot.model.Sensor;
 import gt.com.iot.model.SensorLecture;
 import gt.com.iot.repository.SensorLecturesRepository;
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author marcos
  */
-public class SensorLecturesServiceImp implements SensorLecturesService{
+public class SensorLectureServiceImp implements SensorLectureService{
 
     @Autowired
     private SensorLecturesRepository sensorLecRepo;
@@ -35,19 +34,21 @@ public class SensorLecturesServiceImp implements SensorLecturesService{
 
     @Override
     @Transactional
-    public void createSensorLectures(SensorLecture newLecture) {
-        sensorLecRepo.save(newLecture);
+    public SensorLecture createSensorLecture(SensorLecture newLecture) {
+        SensorLecture lecture = sensorLecRepo.save(newLecture);
+        return lecture;
     }
     
     @Override
     @Transactional
-    public void updateSensorLectures(SensorLecture lecture) {
-        sensorLecRepo.save(lecture);
+    public SensorLecture updateSensorLecture(SensorLecture lecture) {
+        SensorLecture lectureE = sensorLecRepo.save(lecture);
+        return lectureE;
     }
     
     @Override
     @Transactional
-    public void deleteSensorLectures(SensorLecture lecture) {
+    public void deleteSensorLecture(SensorLecture lecture) {
         sensorLecRepo.delete(lecture);
     }
 

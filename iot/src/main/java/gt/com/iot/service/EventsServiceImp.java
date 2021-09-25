@@ -35,14 +35,17 @@ public class EventsServiceImp implements EventsService{
 
     @Override
     @Transactional
-    public void createEvent(Event newEvents) {
-        eventsRepo.save(newEvents);
+    public Event createEvent(Event newEvents) {
+        Event nuevo = eventsRepo.save(newEvents);
+        return nuevo;
+        
     }
 
     @Override
     @Transactional
-    public void updateEvent(Event event) {
-        eventsRepo.save(event);
+    public Event updateEvent(Event event) {
+        Event editado = eventsRepo.save(event);
+        return editado;
     }
 
     @Override

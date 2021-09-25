@@ -29,14 +29,15 @@ public class TankServiceImp implements TankService{
 
     @Override
     @Transactional
-    public void createTank(Tank newTank) {
-        tankRepo.save(newTank);
+    public Tank createTank(Tank newTank) {
+        return tankRepo.save(newTank);
+        
     }
 
     @Override
     @Transactional
-    public void updateTank(Tank tank) {
-        tankRepo.save(tank);
+    public Tank updateTank(Tank tank) {
+        return tankRepo.save(tank);
     }
 
     @Override
