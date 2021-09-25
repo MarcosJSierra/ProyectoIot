@@ -8,11 +8,13 @@ package gt.com.iot.service;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.model.Tank;
 import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author marcos
  */
+@Service
 public interface SensorService {
      
     public Sensor getSensorByID(Integer sensorId);

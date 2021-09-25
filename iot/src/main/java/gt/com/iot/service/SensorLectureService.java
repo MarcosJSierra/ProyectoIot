@@ -7,11 +7,13 @@ package gt.com.iot.service;
 
 import gt.com.iot.model.SensorLecture;
 import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author marcos
  */
+@Service
 public interface SensorLectureService {
       
     public SensorLecture getSensorLectureByID(Integer lectureId);

@@ -6,8 +6,8 @@
 package gt.com.iot.service;
 
 import gt.com.iot.model.Event;
-import gt.com.iot.model.Sensor;
 import java.util.ArrayList;
+import org.springframework.stereotype.Service;
 
 /**
  *
