@@ -29,8 +29,8 @@ public class SensorLecturesServiceImp implements SensorLecturesService{
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<SensorLectures> getSensorLectureBySensor(Sensor sensor) {
-        return sensorLecRepo.queryBySensorId(sensor.getIdSensor());
+    public ArrayList<SensorLectures> getSensorLectureBySensor(Integer sensorId) {
+        return sensorLecRepo.queryBySensorId(sensorId);
     }
 
     @Override

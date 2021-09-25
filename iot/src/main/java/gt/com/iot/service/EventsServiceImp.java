@@ -29,8 +29,8 @@ public class EventsServiceImp implements EventsService{
 
     @Override
     @Transactional(readOnly = true)
-    public ArrayList<Events> getEventsBySensor(Sensor sensor) {
-        return eventsRepo.queryBySensorId(sensor.getIdSensor());
+    public ArrayList<Events> getEventsBySensor(Integer sensorId) {
+        return eventsRepo.queryBySensorId(sensorId);
     }
 
     @Override

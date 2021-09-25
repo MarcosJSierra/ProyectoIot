@@ -17,7 +17,7 @@ public interface EventsService {
       
     public Events getEventByID(Integer eventId);
     
-    public ArrayList<Events> getEventsBySensor(Sensor sensor);
+    public ArrayList<Events> getEventsBySensor(Integer sensorId);
     
     public void createEvent(Events newEvents);
     

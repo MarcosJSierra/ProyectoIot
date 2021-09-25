@@ -17,7 +17,7 @@ public interface SensorLecturesService {
       
     public SensorLectures getSensorLectureByID(Integer lectureId);
     
-    public ArrayList<SensorLectures> getSensorLectureBySensor(Sensor sensor);
+    public ArrayList<SensorLectures> getSensorLectureBySensor(Integer sensorId);
     
     public void createSensorLectures(SensorLectures newLecture);
     
