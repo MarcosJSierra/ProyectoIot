@@ -1,6 +1,22 @@
 {
     "sensor_info":{
-        "id": 1
+        "idSensor": 1,
+        "description": "Sensor de la lata de tiky",
+        "name": "Lotso",
+        "state": 1,
+        "type": "HC-SR04",
+        "idTank": 6
+    },
+    "tank_initial_info":{
+        "idTank": 7,
+        "name": "Pringles",
+        "description": "Una elegante lata de pringles",
+        "units": "g",
+        "maxVolume": "300",
+        "fullread": "5",
+        "emptyread": "17",
+        "stateCode": "1"
+
     },
     "events":{
         "full": 1,
