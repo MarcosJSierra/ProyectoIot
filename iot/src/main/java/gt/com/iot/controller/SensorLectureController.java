@@ -5,6 +5,7 @@
  */
 package gt.com.iot.controller;
 
+import gt.com.iot.dto.SensorLectureQuery;
 import gt.com.iot.model.SensorLecture;
 import gt.com.iot.service.SensorLectureService;
 import java.util.List;
@@ -46,21 +47,17 @@ public class SensorLectureController {
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    SensorLecture createSensorLecture(SensorLecture sensorLecture) {
+    SensorLecture createSensorLecture(SensorLectureQuery sensorLecture) {
         return lectureService.createSensorLecture(sensorLecture);
     }
 
     @PutMapping("/{id}")
-    SensorLecture updateSensorLecture(@RequestBody SensorLecture sensorLecture, @PathVariable Integer id) {
-        SensorLecture oldSensorLecture = lectureService.getSensorLectureByID(id);
-        oldSensorLecture.setTimeLecture(sensorLecture.getTimeLecture());
-        oldSensorLecture.setLecture(sensorLecture.getLecture());
-        oldSensorLecture.setSensor(sensorLecture.getSensor());
-        return lectureService.updateSensorLecture(oldSensorLecture);
+    SensorLecture updateSensorLecture(@RequestBody SensorLectureQuery sensorLecture, @PathVariable Integer id) {
+        return lectureService.updateSensorLecture(sensorLecture);
     }
 
     @DeleteMapping("/{id}")
-    void deleteSensorLecture(@PathVariable SensorLecture sensorLecture) {
+    void deleteSensorLecture(@PathVariable SensorLectureQuery sensorLecture) {
         lectureService.deleteSensorLecture(sensorLecture);
     }
 }

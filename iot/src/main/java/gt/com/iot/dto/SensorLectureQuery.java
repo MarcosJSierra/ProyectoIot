@@ -6,6 +6,7 @@
 package gt.com.iot.dto;
 
 import gt.com.iot.model.Sensor;
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -13,7 +14,7 @@ import lombok.Data;
  * @author marcos
  */
 @Data
-public class SensorLectureQuery {
+public class SensorLectureQuery implements Serializable{
         
     private Integer idDatosSensor;
     

@@ -50,7 +50,4 @@ public class Tank implements Serializable{
     
     @Column(name="stateCode")
     private Integer stateCode;
-    
-    @OneToMany(mappedBy = "tank")
-    private List<Sensor> sensors;
 }

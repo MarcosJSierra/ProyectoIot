@@ -5,6 +5,7 @@
  */
 package gt.com.iot.controller;
 
+import gt.com.iot.dto.EventQuery;
 import gt.com.iot.model.Event;
 import gt.com.iot.service.EventService;
 import java.util.List;
@@ -46,21 +47,17 @@ public class EventController {
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    Event createEvent(Event event) {
+    Event createEvent(EventQuery event) {
         return eventService.createEvent(event);
     }
 
     @PutMapping("/{id}")
-    Event updateEvent(@RequestBody Event event, @PathVariable Integer id) {
-        Event oldEvent = eventService.getEventByID(id);
-        oldEvent.setEventCode(event.getEventCode());
-        oldEvent.setTimeEvent(event.getTimeEvent());
-        oldEvent.setSensor(event.getSensor());
-        return eventService.updateEvent(oldEvent);
+    Event updateEvent(@RequestBody EventQuery event, @PathVariable Integer id) {
+        return eventService.updateEvent(event);
     }
 
     @DeleteMapping("/{id}")
-    void deleteEvent(@PathVariable Event event) {
+    void deleteEvent(@PathVariable EventQuery event) {
         eventService.deleteEvent(event);
     }
 }

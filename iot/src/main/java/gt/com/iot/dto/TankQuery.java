@@ -5,6 +5,7 @@
  */
 package gt.com.iot.dto;
 
+import java.io.Serializable;
 import lombok.Data;
 
 /**
@@ -12,7 +13,7 @@ import lombok.Data;
  * @author marcos
  */
 @Data
-public class TankQuery {
+public class TankQuery implements Serializable{
 
     private Integer idTank;
     

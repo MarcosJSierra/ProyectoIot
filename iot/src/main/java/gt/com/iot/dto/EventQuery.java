@@ -6,6 +6,7 @@
 package gt.com.iot.dto;
 
 import gt.com.iot.model.Sensor;
+import java.io.Serializable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import lombok.Data;
@@ -15,7 +16,7 @@ import lombok.Data;
  * @author marcos
  */
 @Data
-public class EventQuery {
+public class EventQuery implements Serializable{
   
     private Integer idEvento;
     

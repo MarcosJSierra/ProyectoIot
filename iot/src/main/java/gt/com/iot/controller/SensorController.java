@@ -5,6 +5,7 @@
  */
 package gt.com.iot.controller;
 
+import gt.com.iot.dto.SensorQuery;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.service.SensorService;
 import java.util.List;
@@ -46,23 +47,18 @@ public class SensorController {
     }
 
     @PostMapping(value = "", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    Sensor createSensor(Sensor sensor) {
+    Sensor createSensor(SensorQuery sensor) {
         return sensorService.createSensor(sensor);
     }
 
     @PutMapping("/{id}")
-    Sensor updateSensor(@RequestBody Sensor sensor, @PathVariable Integer id) {
-        Sensor oldSensor = sensorService.getSensorByID(id);
-        oldSensor.setName(sensor.getName());
-        oldSensor.setDescription(sensor.getDescription());
-        oldSensor.setState(sensor.getState());
-        oldSensor.setType(sensor.getType());
-        oldSensor.setTank(sensor.getTank());
-        return sensorService.updateSensor(oldSensor);
+    Sensor updateSensor(@RequestBody SensorQuery sensor, @PathVariable Integer id) {
+       
+        return sensorService.updateSensor(sensor);
     }
-
+    
     @DeleteMapping("/{id}")
-    void deleteSensor(@PathVariable Sensor sensor) {
+    void deleteSensor(@PathVariable SensorQuery sensor) {
         sensorService.deleteSensor(sensor);
     }
 }
