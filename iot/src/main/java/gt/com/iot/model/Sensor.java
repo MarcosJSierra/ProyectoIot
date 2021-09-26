@@ -51,10 +51,4 @@ public class Sensor implements Serializable{
     @JoinColumn(name="idTank", referencedColumnName="idTank")
     private Tank tank;
     
-    @OneToMany(mappedBy = "sensor")
-    private List<SensorLecture> sensorLectures;
-    
-    @OneToMany(mappedBy = "sensor")
-    private List<Event> events;
-    
 }

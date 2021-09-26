@@ -24,5 +24,5 @@ public class EventQuery implements Serializable{
     
     private Long timeEvent;
 
-    private Integer sensorId;
+    private Integer idSensor;
 }

@@ -45,7 +45,7 @@ public class EventServiceImp implements EventService{
         Event newEvents = new Event();
         newEvents.setEventCode(newEvent.getEventCode());
         newEvents.setTimeEvent(newEvent.getTimeEvent());
-        newEvents.setSensor(sensorService.getSensorByID(newEvent.getSensorId()));
+        newEvents.setSensor(sensorService.getSensorByID(newEvent.getIdSensor()));
         Event nuevo = eventsRepo.save(newEvents);
         return nuevo;
         
@@ -58,7 +58,7 @@ public class EventServiceImp implements EventService{
         eventoM.setIdEvento(event.getIdEvento());
         eventoM.setEventCode(event.getEventCode());
         eventoM.setTimeEvent(event.getTimeEvent());
-        eventoM.setSensor(sensorService.getSensorByID(event.getSensorId()));
+        eventoM.setSensor(sensorService.getSensorByID(event.getIdSensor()));
         Event editado = eventsRepo.save(eventoM);
         return editado;
     }
@@ -70,7 +70,7 @@ public class EventServiceImp implements EventService{
         eventoM.setIdEvento(event.getIdEvento());
         eventoM.setEventCode(event.getEventCode());
         eventoM.setTimeEvent(event.getTimeEvent());
-        eventoM.setSensor(sensorService.getSensorByID(event.getSensorId()));
+        eventoM.setSensor(sensorService.getSensorByID(event.getIdSensor()));
         eventsRepo.delete(eventoM);
     }
 

@@ -45,7 +45,7 @@ public class SensorLectureServiceImp implements SensorLectureService{
         SensorLecture lectureM =  new SensorLecture();
         lectureM.setLecture(newLecture.getLecture());
         lectureM.setTimeLecture(newLecture.getTimeLecture());
-        lectureM.setSensor(sensorService.getSensorByID(newLecture.getSensorId()));
+        lectureM.setSensor(sensorService.getSensorByID(newLecture.getIdSensor()));
         SensorLecture lecture = sensorLecRepo.save(lectureM);
         return lecture;
     }
@@ -57,7 +57,7 @@ public class SensorLectureServiceImp implements SensorLectureService{
         lectureM.setIdDatosSensor(lecture.getIdDatosSensor());
         lectureM.setLecture(lecture.getLecture());
         lectureM.setTimeLecture(lecture.getTimeLecture());
-        lectureM.setSensor(sensorService.getSensorByID(lecture.getSensorId()));
+        lectureM.setSensor(sensorService.getSensorByID(lecture.getIdSensor()));
         SensorLecture lectureE = sensorLecRepo.save(lectureM);
         return lectureE;
     }
@@ -69,7 +69,7 @@ public class SensorLectureServiceImp implements SensorLectureService{
         lectureM.setIdDatosSensor(lecture.getIdDatosSensor());
         lectureM.setLecture(lecture.getLecture());
         lectureM.setTimeLecture(lecture.getTimeLecture());
-        lectureM.setSensor(sensorService.getSensorByID(lecture.getSensorId()));
+        lectureM.setSensor(sensorService.getSensorByID(lecture.getIdSensor()));
         sensorLecRepo.delete(lectureM);
     }
 

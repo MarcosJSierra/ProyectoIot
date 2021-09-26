@@ -22,6 +22,6 @@ public class SensorLectureQuery implements Serializable{
     
     private Long lecture;
     
-    private Integer sensorId;
+    private Integer idSensor;
   
 }
