@@ -5,6 +5,7 @@
  */
 package gt.com.iot.service;
 
+import gt.com.iot.dto.SensorQuery;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.model.Tank;
 import gt.com.iot.repository.SensorRepository;
@@ -24,6 +25,9 @@ public class SensorServiceImp implements SensorService{
     @Autowired
     private SensorRepository sensorRepo;
     
+    @Autowired
+    private TankServiceImp tankService; 
+    
     @Override
     @Transactional(readOnly = true)
     public Sensor getSensorByID(Integer sensorId) {
@@ -38,22 +42,42 @@ public class SensorServiceImp implements SensorService{
 
     @Override
     @Transactional
-    public Sensor createSensor(Sensor newSensor) {
-        Sensor sensor = sensorRepo.save(newSensor);
+    public Sensor createSensor(SensorQuery newSensor) {
+        Sensor sensorM = new Sensor();
+        sensorM.setName(newSensor.getName());
+        sensorM.setDescription(newSensor.getDescription());
+        sensorM.setTank(tankService.getTankByID(newSensor.getIdTank()));
+        sensorM.setState(newSensor.getState());
+        sensorM.setType(newSensor.getType());
+        Sensor sensor = sensorRepo.save(sensorM);
         return sensor;
     }
 
     @Override
     @Transactional
-    public Sensor updateSensor(Sensor sensor) {
-        Sensor newSensor = sensorRepo.save(sensor);
+    public Sensor updateSensor(SensorQuery sensor) {
+        Sensor sensorM = new Sensor();
+        sensorM.setIdSensor(sensor.getIdSensor());
+        sensorM.setName(sensor.getName());
+        sensorM.setDescription(sensor.getDescription());
+        sensorM.setTank(tankService.getTankByID(sensor.getIdTank()));
+        sensorM.setState(sensor.getState());
+        sensorM.setType(sensor.getType());
+        Sensor newSensor = sensorRepo.save(sensorM);
         return newSensor;
     }
 
     @Override
     @Transactional
-    public void deleteSensor(Sensor sensor) {
-        sensorRepo.delete(sensor);
+    public void deleteSensor(SensorQuery sensor) {
+        Sensor sensorM = new Sensor();
+        sensorM.setIdSensor(sensor.getIdSensor());
+        sensorM.setName(sensor.getName());
+        sensorM.setDescription(sensor.getDescription());
+        sensorM.setTank(tankService.getTankByID(sensor.getIdTank()));
+        sensorM.setState(sensor.getState());
+        sensorM.setType(sensor.getType());
+        sensorRepo.delete(sensorM);
     }
 
     @Override

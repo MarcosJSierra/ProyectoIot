@@ -5,6 +5,7 @@
  */
 package gt.com.iot.service;
 
+import gt.com.iot.dto.SensorLectureQuery;
 import gt.com.iot.model.SensorLecture;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ public interface SensorLectureService {
     
     public ArrayList<SensorLecture> getSensorLectureBySensor(Integer sensorId);
     
-    public SensorLecture createSensorLecture(SensorLecture newLecture);
+    public SensorLecture createSensorLecture(SensorLectureQuery newLecture);
     
-    public SensorLecture updateSensorLecture(SensorLecture lecture);
+    public SensorLecture updateSensorLecture(SensorLectureQuery lecture);
     
-    public void deleteSensorLecture(SensorLecture lecture);
+    public void deleteSensorLecture(SensorLectureQuery lecture);
     
     public ArrayList<SensorLecture> getAll();
 }

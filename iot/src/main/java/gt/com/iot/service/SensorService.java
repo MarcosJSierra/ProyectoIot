@@ -5,6 +5,7 @@
  */
 package gt.com.iot.service;
 
+import gt.com.iot.dto.SensorQuery;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.model.Tank;
 import java.util.ArrayList;
@@ -20,11 +21,11 @@ public interface SensorService {
     
     public ArrayList<Sensor> getSensorByTank(Integer tankId);
     
-    public Sensor createSensor(Sensor newSensor);
+    public Sensor createSensor(SensorQuery newSensor);
     
-    public Sensor updateSensor(Sensor sensor);
+    public Sensor updateSensor(SensorQuery sensor);
     
-    public void deleteSensor(Sensor sensor);
+    public void deleteSensor(SensorQuery sensor);
     
     public ArrayList<Sensor> getAll();
     
