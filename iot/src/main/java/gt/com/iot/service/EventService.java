@@ -5,6 +5,7 @@
  */
 package gt.com.iot.service;
 
+import gt.com.iot.dto.EventQuery;
 import gt.com.iot.model.Event;
 import java.util.ArrayList;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ public interface EventService {
     
     public ArrayList<Event> getEventsBySensor(Integer sensorId);
     
-    public Event createEvent(Event newEvents);
+    public Event createEvent(EventQuery newEvent);
     
-    public Event updateEvent(Event tank);
+    public Event updateEvent(EventQuery event);
     
-    public void deleteEvent(Event tank);
+    public void deleteEvent(EventQuery event);
     
     public ArrayList<Event> getAll();
     

@@ -5,6 +5,7 @@
  */
 package gt.com.iot.service;
 
+import gt.com.iot.dto.EventQuery;
 import gt.com.iot.model.Event;
 import gt.com.iot.model.Sensor;
 import gt.com.iot.repository.EventsRepository;
@@ -23,6 +24,9 @@ public class EventServiceImp implements EventService{
     @Autowired
     public EventsRepository eventsRepo;
     
+    @Autowired
+    public SensorServiceImp sensorService;
+    
     @Override
     @Transactional(readOnly = true)
     public Event getEventByID(Integer eventId) {
@@ -37,7 +41,11 @@ public class EventServiceImp implements EventService{
 
     @Override
     @Transactional
-    public Event createEvent(Event newEvents) {
+    public Event createEvent(EventQuery newEvent) {
+        Event newEvents = new Event();
+        newEvents.setEventCode(newEvent.getEventCode());
+        newEvents.setTimeEvent(newEvent.getTimeEvent());
+        newEvents.setSensor(sensorService.getSensorByID(newEvent.getSensorId()));
         Event nuevo = eventsRepo.save(newEvents);
         return nuevo;
         
@@ -45,15 +53,25 @@ public class EventServiceImp implements EventService{
 
     @Override
     @Transactional
-    public Event updateEvent(Event event) {
-        Event editado = eventsRepo.save(event);
+    public Event updateEvent(EventQuery event) {
+        Event eventoM = new Event();
+        eventoM.setIdEvento(event.getIdEvento());
+        eventoM.setEventCode(event.getEventCode());
+        eventoM.setTimeEvent(event.getTimeEvent());
+        eventoM.setSensor(sensorService.getSensorByID(event.getSensorId()));
+        Event editado = eventsRepo.save(eventoM);
         return editado;
     }
 
     @Override
     @Transactional
-    public void deleteEvent(Event event) {
-        eventsRepo.delete(event);
+    public void deleteEvent(EventQuery event) {
+        Event eventoM = new Event();
+        eventoM.setIdEvento(event.getIdEvento());
+        eventoM.setEventCode(event.getEventCode());
+        eventoM.setTimeEvent(event.getTimeEvent());
+        eventoM.setSensor(sensorService.getSensorByID(event.getSensorId()));
+        eventsRepo.delete(eventoM);
     }
 
     @Override

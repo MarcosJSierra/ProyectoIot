@@ -19,6 +19,10 @@ import lombok.Data;
 public class Event implements Serializable{
 
     private static final long serialVersionUID = 1L;
+    
+    public Event(){
+    
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
