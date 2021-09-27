@@ -6,11 +6,13 @@
 package gt.com.iot.controller;
 
 import gt.com.iot.dto.SensorLectureQuery;
+import gt.com.iot.dto.StatisticsQuery;
 import gt.com.iot.model.SensorLecture;
 import gt.com.iot.service.SensorLectureService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -25,6 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@CrossOrigin("http://localhost:8081")
 @RequestMapping(value = "api/sensorlecture")
 public class SensorLectureController {
 
@@ -32,8 +36,13 @@ public class SensorLectureController {
     private SensorLectureService lectureService;
 
     @GetMapping("")
-    List<SensorLecture> getSensorList() {
+    List<SensorLectureQuery> getSensorList() {
         return lectureService.getAll();
+    }
+
+    @GetMapping("/statistics")
+    StatisticsQuery getStatistics(@RequestParam String startDate, @RequestParam String endDate) {
+        return lectureService.getLectureFromDateToDate(startDate, endDate);
     }
 
     @GetMapping("/sensor/{id}")

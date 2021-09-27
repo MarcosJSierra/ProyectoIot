@@ -11,6 +11,7 @@ import gt.com.iot.service.SensorService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author malopez
  */
 @RestController
+@CrossOrigin("http://localhost:8081")
 @RequestMapping(value = "api/sensor")
 public class SensorController {
 
@@ -53,10 +55,10 @@ public class SensorController {
 
     @PutMapping("/{id}")
     Sensor updateSensor(@RequestBody SensorQuery sensor, @PathVariable Integer id) {
-       
+
         return sensorService.updateSensor(sensor);
     }
-    
+
     @DeleteMapping("/{id}")
     void deleteSensor(@PathVariable SensorQuery sensor) {
         sensorService.deleteSensor(sensor);

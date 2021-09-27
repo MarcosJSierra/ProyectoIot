@@ -20,4 +20,7 @@ import org.springframework.stereotype.Repository;
 public interface SensorLecturesRepository extends JpaRepository<SensorLecture, Integer> {
     @Query (value = "SELECT * FROM SensorLectures WHERE SensorLectures.idSensor = :idSensor", nativeQuery = true)
     ArrayList<SensorLecture> queryBySensorId(@Param("idSensor") Integer idSensor);
+
+    @Query(value = "SELECT * FROM SensorLectures WHERE timeLecture >= :startDate AND timeLecture <= :endDate", nativeQuery = true)
+    ArrayList<SensorLecture> queryByDates(@Param("startDate") Long startDate, @Param("endDate") Long endDate);
 }
