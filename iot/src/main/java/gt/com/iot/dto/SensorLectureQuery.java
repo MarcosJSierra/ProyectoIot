@@ -29,7 +29,7 @@ public class SensorLectureQuery implements Serializable{
 
     public String setLectureDate(Long time) {
         Timestamp timestamp = new Timestamp(time);
-        Date date = new Date(timestamp.getTime());
+        Date date = new Date(timestamp.getTime() * 1000);
         return this.lectureDate = date.toString();
     }
 }

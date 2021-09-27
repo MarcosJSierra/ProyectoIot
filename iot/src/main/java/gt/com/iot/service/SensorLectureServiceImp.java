@@ -90,7 +90,7 @@ public class SensorLectureServiceImp implements SensorLectureService{
         if (startDate.equals("")) {
             sensorLectures = (ArrayList<SensorLecture>) sensorLecRepo.findAll();
         } else {
-            sensorLectures = (ArrayList<SensorLecture>) sensorLecRepo.queryByDates(Long.parseLong(startDate), Long.parseLong(endDate));
+            sensorLectures = (ArrayList<SensorLecture>) sensorLecRepo.queryByDates(Long.parseLong(startDate) / 1000, Long.parseLong(endDate) / 1000);
         }
         sensorLectures.stream().filter(sensorLecture -> (sensorLecture.getLecture() > statistics.getMaximo())).forEachOrdered(sensorLecture -> {
             statistics.setMaximo(sensorLecture.getLecture());
