@@ -41,7 +41,8 @@ public class SensorLectureController {
     }
 
     @GetMapping("/statistics")
-    StatisticsQuery getStatistics(@RequestParam String startDate, @RequestParam String endDate) {
+    StatisticsQuery getStatistics(@RequestParam(defaultValue = "") String startDate,
+            @RequestParam(defaultValue = "") String endDate) {
         return lectureService.getLectureFromDateToDate(startDate, endDate);
     }
 

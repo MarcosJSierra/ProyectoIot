@@ -85,18 +85,29 @@ public class SensorLectureServiceImp implements SensorLectureService{
     @Override
     @Transactional(readOnly = true)
     public StatisticsQuery getLectureFromDateToDate(String startDate, String endDate) {
-        StatisticsQuery statistics = new StatisticsQuery(0.0, 0L, 0L, 0);
-        ArrayList<SensorLecture> sensorLectures
-                = (ArrayList<SensorLecture>) sensorLecRepo.queryByDates(Long.parseLong(startDate), Long.parseLong(endDate));
+        StatisticsQuery statistics = new StatisticsQuery(0.0, 0L, null, 0);
+        ArrayList<SensorLecture> sensorLectures = new ArrayList<>();
+        if (startDate.equals("")) {
+            sensorLectures = (ArrayList<SensorLecture>) sensorLecRepo.findAll();
+        } else {
+            sensorLectures = (ArrayList<SensorLecture>) sensorLecRepo.queryByDates(Long.parseLong(startDate), Long.parseLong(endDate));
+        }
         sensorLectures.stream().filter(sensorLecture -> (sensorLecture.getLecture() > statistics.getMaximo())).forEachOrdered(sensorLecture -> {
             statistics.setMaximo(sensorLecture.getLecture());
         });
-        sensorLectures.stream().filter(sensorLecture -> (sensorLecture.getLecture() < statistics.getMinimo())).forEachOrdered(sensorLecture -> {
-            statistics.setMinimo(sensorLecture.getLecture());
+        sensorLectures.forEach(sensorLecture -> {
+            if (statistics.getMinimo() == null) {
+                statistics.setMinimo(sensorLecture.getLecture());
+            } else {
+                if (sensorLecture.getLecture() < statistics.getMinimo()) {
+                    statistics.setMinimo(sensorLecture.getLecture());
+                }
+            }
         });
         sensorLectures.forEach(sensorLecture -> {
             statistics.setPromedio(statistics.getPromedio() + sensorLecture.getLecture().doubleValue());
         });
+        statistics.setPromedio(Math.round((statistics.getPromedio() / sensorLectures.size()) * 100.0) / 100.0);
         statistics.setTotal(sensorLectures.size());
         statistics.setSensorLectures(formatDate(sensorLectures));
         return statistics;

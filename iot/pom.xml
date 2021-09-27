@@ -14,6 +14,7 @@
 	<name>proyecto1</name>
 	<description>Proyecto de IoT</description>
 	<properties>
+                <start-class>gt.com.iot.Proyecto1Application</start-class>
 		<java.version>11</java.version>
                 <maven.test.skip>true</maven.test.skip>
 	</properties>
